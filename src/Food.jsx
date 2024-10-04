@@ -1,10 +1,29 @@
-function Food() {
-  return <img src="./public/hamegg.jpg" className="hamEgg" alt="Ham and eggs"></img>
+function Item({ name, isPacked }) {
+  return (
+    <li className="item">
+      {isPacked ? (<del>{name + ' ✅'}</del>) : name}
+    </li>
+  );
 }
 
-function Maths() {
-  let randomNum = Math.floor(Math.random() * 10);
-  return <p>Your random number of the load is: {randomNum}</p>
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Sally Ride&apos;s Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
 }
-
-export { Food, Maths };
